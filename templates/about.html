@@ -1,156 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>About Us</h2>
+
+    <h2>{{ page_heading }}</h2>
     <p>
         The formation of the group grew out of a meeting Gandalf had with Thorin in Bree which kindled Thorin's interest in recapturing his long lost family inheritance. (Thorin's grandfather had been the King under the Mountain when Smaug came and took it.) Remembering that he had once known an adventurous Hobbit on his travels in the Shire, Gandalf decided to add Bilbo to their company because he knew that stealth and cunning were preferable to force. Gandalf also believed that someone like Bilbo could keep the sometimes prideful and stubborn Dwarves from rash action. The superstitious Dwarves also considered thirteen to be an unlucky number, and as Gandalf had planned to leave on other business, welcomed a fourteenth to fill into their party.
     </p>
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h3>
-                Thorin II Oakenshield
-            </h3>
-            <p>
-                Son of Thráin, son of Thrór, King under the Mountain is a fictional character in J. R. R. Tolkien's 1937 novel The Hobbit. Thorin is the leader of the Company of Dwarves who aim to reclaim the Lonely Mountain from Smaug the dragon. He is the son of Thráin II, grandson of Thrór, and becomes King of Durin's Folk during their exile from Erebor. Thorin's background is further elaborated in Appendix A of Tolkien's 1955 novel The Return of the King.
-            </p>
+    {% for dwarf in company %}
+        <div class="row featurette">
+            {% if loop.index % 2 != 0%}
+                <div class="col-md-7">
+                    <h3>{{ loop.index }}. {{ dwarf.name }}</h3>
+                    <p>{{ dwarf.bio }}</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image image-response" src="{{ dwarf.image }}" alt="{{ dwarf.alt }}">
+                </div>
+            {% else %}
+            <div class="col-md-7 order-md-2">
+                <h3>{{ loop.index }}. {{ dwarf.name }}</h3>
+                <p>{{ dwarf.bio }}</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img class="featurette-image image-response" src="{{ dwarf.image }}" alt="{{ dwarf.alt }}">
+            </div>
+            {% endif %}
         </div>
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/a/a9/Thorin_son_of_Thrain.png/" alt="Thorin II Oakenshield">
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/a/a6/HBT-DWF-003.jpg" alt="Filli and Kíli">
-        </div>
-        <div class="col-md-7">
-            <h3>Filli and Kíli</h3>
-            <p>
-                Fíli and Kíli were brothers, the youngest of the thirteen dwarves who set out on Thorin Oakenshield's quest along with Gandalf and Bilbo Baggins to reclaim the Lonely Mountain from the dragon Smaug. They were also nephews of Thorin, who was the elder brother of their mother Dís. They were both described as having the best eyesight and the keenest hearing of the dwarves. They were also the quickest to spot the Arkenstone in Smaug's hoard.
-            </p>
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h3>
-                Óin (Third Age)
-            </h3>
-            <p>
-                Óin was a Dwarf of Durin's Folk, who accompanied Thorin and Company on the Quest of Erebor. He was the brother of Glóin, and cousin of Balin and Dwalin. Óin was the son of Gróin, and the grandson of Farin. He was also the uncle of Gimli, who later became a member of the Fellowship of the Ring.
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/e/e8/Oin.jpg/" alt="Óin">
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/f/fc/Gloin_2.jpg/" alt="Glóin">
-        </div>
-        <div class="col-md-7">
-            <h3>Glóin</h3>
-            <p>
-                Glóin was a Dwarf of Durin's Folk, the son of Gróin, younger brother of Óin, husband of an unnamed wife, the father of Gimli, and a distant kinsman of Thorin Oakenshield. Glóin was one of the Dwarves who travelled with Bilbo Baggins and Gandalf to reclaim the Lonely Mountain from Smaug. He was also a member of the Fellowship of the Ring.
-            </p>
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h3>
-                Balin
-            </h3>
-            <p>
-                Balin was a Dwarf leader, the son of Fundin, and elder brother of Dwalin. Balin was one of the Dwarves of Thorin's company who set out to reclaim the Lonely Mountain from Smaug. He was also the Lord of Moria for five years, after the Dwarves abandoned Erebor. Balin was killed by an Orc archer in the Chamber of Mazarbul while looking in Mirrormere.
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/5/52/Balin.jpg/" alt="Balin">
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/1/1c/Dwalin.jpg/" alt="Dwalin">
-        </div>
-        <div class="col-md-7">
-            <h3>Dwalin</h3>
-            <p>
-                Dwalin was a Dwarf of Durin's Folk, the son of Fundin, elder brother of Balin, and the cousin of Thorin Oakenshield. Dwalin was one of the Dwarves who travelled with Bilbo Baggins and Gandalf to reclaim the Lonely Mountain from Smaug. He was also a member of the Fellowship of the Ring.
-            </p>
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h3>Ori</h3>
-            <p>
-                Ori was a Dwarf of Durin's Folk, who travelled with Thorin and Company to reclaim the Lonely Mountain from Smaug. He was the brother of Nori and Dori, and distant kinsman of Thorin Oakenshield. Ori was the son of an unnamed father, and the grandson of Farin. He was also the cousin of Balin and Dwalin. Ori was killed in the Battle of the Chamber of Mazarbul, along with his brother, Nori.
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/8/81/Ori.jpeg/" alt="Bifur">
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/2/27/Mark_Hadlow_as_Dori.jpg/" alt="Ori">
-        </div>
-        <div class="col-md-7">
-            <h3>Dori</h3>
-            <p>
-                Dori was a Dwarf of Durin's Folk, who travelled with Thorin and Company to reclaim the Lonely Mountain from Smaug. He was the brother of Nori and Ori, and distant kinsman of Thorin Oakenshield. Dori was the son of an unnamed father, and the grandson of Náin. He was also the uncle of Gimli, who later became a member of the Fellowship of the Ring.
-            </p>
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h3>Nori</h3>
-            <p>
-                Nori was a Dwarf of Durin's Folk, who travelled with Thorin and Company to reclaim the Lonely Mountain from Smaug. He was the brother of Dori and Ori, and distant kinsman of Thorin Oakenshield. Nori was the son of an unnamed father, and the grandson of Náin. He was also the uncle of Gimli, who later became a member of the Fellowship of the Ring.
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/5/50/Untitled-31.png/" alt="Nori">
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/7/73/Bifur_2.jpg/" alt="Bifur">
-        </div>
-        <div class="col-md-7">
-            <h3>Bifur</h3>
-            <p>
-                Bifur was a Dwarf of Durin's Folk, who travelled with Thorin and Company to reclaim the Lonely Mountain from Smaug. He was the brother of Bofur and Bombur, and distant kinsman of Thorin Oakenshield. Bifur was the son of an unnamed father, and the grandson of Náin. He was also the uncle of Gimli, who later became a member of the Fellowship of the Ring.
-            </p>
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h3>Bofur</h3>
-            <p>
-                Bofur was a Dwarf of Durin's Folk, who travelled with Thorin and Company to reclaim the Lonely Mountain from Smaug. He was the brother of Bifur and Bombur, and distant kinsman of Thorin Oakenshield. Bofur was the son of an unnamed father, and the grandson of Náin. He was also the uncle of Gimli, who later became a member of the Fellowship of the Ring.
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/5/56/Bofur_Nesbitt.jpg/" alt="Bofur">
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/e/ed/Bombur.jpg/" alt="Bombur">
-        </div>
-        <div class="col-md-7">
-            <h3>Bombur</h3>
-            <p>
-                Bombur was a Dwarf of Durin's Folk, who travelled with Thorin and Company to reclaim the Lonely Mountain from Smaug. He was the brother of Bifur and Bofur, and distant kinsman of Thorin Oakenshield. Bombur was the son of an unnamed father, and the grandson of Náin. He was also the uncle of Gimli, who later became a member of the Fellowship of the Ring.
-            </p>
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h3>Gandalf</h3>
-            <p>
-                Gandalf, originally named Olórin, was a Maia who served Yavanna and Manwë. He was sent to Middle-earth in the Third Age to combat the threat of Sauron, and became known as the greatest of the Istari. Gandalf played a key role in the War of the Ring alongside his friends Bilbo Baggins, Frodo Baggins, Samwise Gamgee, Peregrin Took, and Meriadoc Brandybuck, and was one of the few beings in Middle-earth who remained entirely incorruptible by the power of the One Ring.
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/e/e9/Gandalf_leading_the_Fellowship.png/" alt="Gloin">
-        </div>
-    </div>
+        {% if not loop.last %}
+            <hr class="featurette-divider">
+        {% endif %}
+    {% endfor %}
 {% endblock %}
