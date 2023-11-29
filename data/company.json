@@ -24,7 +24,8 @@
         "name":"Glóin",
         "bio": "Glóin was a Dwarf of Durin's Folk, the son of Gróin, younger brother of Óin, husband of an unnamed wife, the father of Gimli, and a distant kinsman of Thorin Oakenshield. Glóin was one of the Dwarves who travelled with Bilbo Baggins and Gandalf to reclaim the Lonely Mountain from Smaug. He was also a member of the Fellowship of the Ring.",
         "image": "https://static.wikia.nocookie.net/lotr/images/f/fc/Gloin_2.jpg/",
-        "alt": "Glóin"
+        "alt": "Glóin",
+        "url": "gloin"
     },
     {
         "name":"Balin",
@@ -88,6 +89,5 @@
         "image": "https://www.thefactsite.com/wp-content/uploads/2017/11/gandalf-facts.webp",
         "alt": "Gandalf leading the Fellowship",
         "url": "gandalf"
-
     }
 ]

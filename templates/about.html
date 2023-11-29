@@ -7,22 +7,22 @@
     </p>
     {% for dwarf in company %}
         <div class="row featurette">
-            {% if loop.index % 2 != 0%}
+            {% if loop.index % 2 != 0 %}
                 <div class="col-md-7">
-                    <h3>{{ loop.index }}. {{ dwarf.name }}</h3>
+                    <h3><a href="/about/{{ dwarf.url }}">{{ loop.index }}. {{ dwarf.name }}</a></h3>
                     <p>{{ dwarf.bio }}</p>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 image-container">
                     <img class="featurette-image image-response" src="{{ dwarf.image }}" alt="{{ dwarf.alt }}">
                 </div>
             {% else %}
-            <div class="col-md-7 order-md-2">
-                <h3>{{ loop.index }}. {{ dwarf.name }}</h3>
-                <p>{{ dwarf.bio }}</p>
-            </div>
-            <div class="col-md-5 order-md-1">
-                <img class="featurette-image image-response" src="{{ dwarf.image }}" alt="{{ dwarf.alt }}">
-            </div>
+                <div class="col-md-7 order-md-2">
+                    <h3><a href="/about/{{ dwarf.url }}">{{ loop.index }}. {{ dwarf.name }}</a></h3>
+                    <p>{{ dwarf.bio }}</p>
+                </div>
+                <div class="col-md-5 order-md-1 image-container">
+                    <img class="featurette-image image-response" src="{{ dwarf.image }}" alt="{{ dwarf.alt }}">
+                </div>
             {% endif %}
         </div>
         {% if not loop.last %}
